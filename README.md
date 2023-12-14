@@ -4,7 +4,9 @@
 <h3>Loyihani ishga tushurish uchun kod</h3>
 
 <pre>
-  
+npm install
+</pre>
+<pre>
 npm run dev
 </pre>
 
