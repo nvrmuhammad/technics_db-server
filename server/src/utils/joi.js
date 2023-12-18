@@ -4,7 +4,8 @@ export const validateLogin = Joi.object({
   email: Joi.string().required(),
   password: Joi.string().required(),
 })
-export const validateAddUser= Joi.object({
+export const validateAddUser = Joi.object({
+  full_name: Joi.string().required(),
   login: Joi.string().required(),
   password: Joi.string().required(),
 })
