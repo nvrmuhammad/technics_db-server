@@ -5,6 +5,7 @@ import cors from 'cors'
 import errorHandler from './utils/errors/handle.js'
 import AdminRouter from './modules/admin/_api.js'
 import ProductRouter from './modules/product/_api.js'
+import UserRouter from './modules/user/_api.js'
 
 const app = express()
 
@@ -15,6 +16,7 @@ function server() {
     app.use(AdminRouter)
     app.use(ProductRouter)
     app.use(errorHandler)
+    app.use(UserRouter)
     db()
 
     app.listen(process.env.PORT, () => {
