@@ -50,3 +50,15 @@ export const updateProduct = async (req, res, next) => {
   }
 }
 
+export const removeProduct = async (req, res, next) => {
+  try {
+    const result = await removeProductService({
+      user: req.user,
+      params: req.params,
+    })
+
+    res.status(200).json({ data: result })
+  } catch (error) {
+    next(error)
+  }
+}
