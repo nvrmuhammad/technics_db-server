@@ -35,3 +35,18 @@ export const listProduct = async (req, res, next) => {
   }
 }
 
+export const updateProduct = async (req, res, next) => {
+  try {
+    const result = await updateProductService({
+      body: req.body,
+      user: req.user,
+      params: req.params,
+      file: req.file,
+    })
+
+    res.status(200).json({ data: result })
+  } catch (error) {
+    next(error)
+  }
+}
+
