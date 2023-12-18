@@ -1,21 +1,15 @@
 import { BadRequestError } from '../../../utils/errors/index.js'
 import { Admin } from '../Schema/Admin.js'
 
-export const listAdminService = async () => {
-  // const { email, password, full_name } = body
+export const listAdminService = async ({ user }) => {
+  const { id } = user
 
-  // const admin = await Admin.findOne({ email })
+  const checking = await Admin.findOne({ _id: id })
 
-  // if (admin) {
-  //   throw new BadRequestError('Bu admin oldin ro`yxatdan o`tgan')
-  // }
-  // const hashedPass = await bcrypt.hash(password, process.env.SALT)
+  if (!checking) {
+    throw new BadRequestError('Sizda adminlik huquqi yo`q')
+  }
 
-  // const newAdmin = await Admin.create({
-  //   full_name,
-  //   email,
-  //   password: hashedPass,
-  // })
   const admins = await Admin.find()
 
   return admins
