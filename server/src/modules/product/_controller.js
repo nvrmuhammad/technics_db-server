@@ -22,3 +22,16 @@ export const addProduct = async (req, res, next) => {
     next(error)
   }
 }
+
+export const listProduct = async (req, res, next) => {
+  try {
+    const result = await listProductService({
+      user: req.user,
+    })
+
+    res.status(200).json({ data: result })
+  } catch (error) {
+    next(error)
+  }
+}
+
