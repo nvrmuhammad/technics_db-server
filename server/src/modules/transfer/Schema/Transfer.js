@@ -1,19 +1,20 @@
 import mongoose from 'mongoose'
 
-const PartnerSchema = new mongoose.Schema(
+const TransferSchema = new mongoose.Schema(
   {
-    full_name: {
+    message: {
       type: mongoose.SchemaTypes.String,
       required: true,
     },
     admin_id: {
       type: mongoose.SchemaTypes.ObjectId,
       ref: 'admin',
-      require: true,
+      required: true,
     },
-    product_transfer: {
-      type: mongoose.SchemaTypes.Array,
-      default: [],
+    partner_id: {
+      type: mongoose.SchemaTypes.ObjectId,
+      ref: 'partner',
+      required: true,
     },
   },
   {
@@ -25,4 +26,4 @@ const PartnerSchema = new mongoose.Schema(
   }
 )
 
-export const Partner = mongoose.model('partner', PartnerSchema)
+export const Transfer = mongoose.model('transfer', TransferSchema)

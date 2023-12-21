@@ -11,7 +11,7 @@ export const addAdminService = async ({ body, user }) => {
   if (!checking) {
     throw new BadRequestError('Sizda adminlik huquqi yo`q')
   }
-  
+
   const admin = await Admin.findOne({ email })
 
   if (admin) {
