@@ -9,6 +9,10 @@ export const validateAddUser = Joi.object({
   login: Joi.string().required(),
   password: Joi.string().required(),
 })
+export const validatedUserLogin = Joi.object({
+  login: Joi.string().required(),
+  password: Joi.string().required(),
+})
 
 export const validateProduct = Joi.object({
   name: Joi.string().required(),
