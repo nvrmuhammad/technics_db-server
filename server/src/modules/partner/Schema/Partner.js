@@ -11,6 +11,10 @@ const PartnerSchema = new mongoose.Schema(
       ref: 'admin',
       require: true,
     },
+    product_transfer: {
+      type: mongoose.SchemaTypes.Array,
+      default: [],
+    },
   },
   {
     timestamps: {

@@ -12,14 +12,16 @@ export const addPartnerService = async ({ body, user }) => {
     throw new BadRequestError('Sizda adminlik huquqi yo`q')
   }
 
-  const partner = await Partner.findOne({ full_name })
+  const fullName = full_name.trim()
+
+  const partner = await Partner.findOne({ full_name: fullName })
 
   if (partner) {
     throw new BadRequestError('Bu hamkor avval qo`shilgan')
   }
 
   const newPartner = await Partner.create({
-    full_name,
+    full_name: fullName,
     admin_id: id,
   })
 
