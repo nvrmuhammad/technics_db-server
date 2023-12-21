@@ -16,6 +16,10 @@ export const validatedUserLogin = Joi.object({
 export const validatedPartner = Joi.object({
   full_name: Joi.string().required(),
 })
+export const validatedTransfer = Joi.object({
+  message: Joi.string().required(),
+  partner_id: Joi.string().required(),
+})
 
 export const validateProduct = Joi.object({
   name: Joi.string().required(),
