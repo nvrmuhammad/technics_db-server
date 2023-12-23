@@ -19,3 +19,14 @@ export const listPartner = async (req, res, next) => {
     next(error)
   }
 }
+export const oncePartner = async (req, res, next) => {
+  try {
+    const result = await oncePartnerService({
+      user: req.user,
+      params: req.params,
+    })
+    res.status(200).json({ data: result })
+  } catch (error) {
+    next(error)
+  }
+}
