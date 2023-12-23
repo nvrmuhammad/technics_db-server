@@ -42,3 +42,14 @@ export const updatePartner = async (req, res, next) => {
     next(error)
   }
 }
+export const removePartner = async (req, res, next) => {
+  try {
+    const result = await removePartnerService({
+      user: req.user,
+      params: req.params,
+    })
+    res.status(200).json({ data: result })
+  } catch (error) {
+    next(error)
+  }
+}
