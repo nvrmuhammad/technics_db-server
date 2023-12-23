@@ -30,3 +30,15 @@ export const oncePartner = async (req, res, next) => {
     next(error)
   }
 }
+export const updatePartner = async (req, res, next) => {
+  try {
+    const result = await updatePartnerService({
+      body: req.body,
+      user: req.user,
+      params: req.params,
+    })
+    res.status(200).json({ data: result })
+  } catch (error) {
+    next(error)
+  }
+}
