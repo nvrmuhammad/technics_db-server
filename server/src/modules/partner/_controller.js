@@ -11,3 +11,11 @@ export const addPartner = async (req, res, next) => {
     next(error)
   }
 }
+export const listPartner = async (req, res, next) => {
+  try {
+    const result = await listPartnerService({ user: req.user })
+    res.status(200).json({ data: result })
+  } catch (error) {
+    next(error)
+  }
+}
