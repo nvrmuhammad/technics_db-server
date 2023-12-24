@@ -25,3 +25,16 @@ export const listTransfer = async (req, res, next) => {
     next(error)
   }
 }
+export const updateTransfer = async (req, res, next) => {
+  try {
+    const result = await updateTransferService({
+      body: req.body,
+      user: req.user,
+      params: req.params,
+    })
+
+    res.status(200).json({ data: result })
+  } catch (error) {
+    next(error)
+  }
+}
