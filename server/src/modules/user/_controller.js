@@ -30,3 +30,11 @@ export const loginUser = async (req, res, next) => {
     next(error)
   }
 }
+export const listUser = async (req, res, next) => {
+  try {
+    const result = await listUserService({ user: req.user })
+    res.status(200).json({ data: result })
+  } catch (error) {
+    next(error)
+  }
+}
