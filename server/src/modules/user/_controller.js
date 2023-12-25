@@ -38,3 +38,15 @@ export const listUser = async (req, res, next) => {
     next(error)
   }
 }
+export const removeUser = async (req, res, next) => {
+  try {
+    const result = await removeUserService({
+      user: req.user,
+      params: req.params,
+    })
+
+    res.status(200).json({ data: result })
+  } catch (error) {
+    next(error)
+  }
+}
