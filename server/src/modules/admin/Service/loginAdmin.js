@@ -19,7 +19,8 @@ export const loginAdminService = async ({ body }) => {
 
   const token = jwt.sign(
     { id: admin._id, role: 'admin' },
-    process.env.SECRET_KEY
+    process.env.SECRET_KEY,
+    { expiresIn: '1d' }
   )
 
   return token
