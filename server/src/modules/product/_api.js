@@ -9,7 +9,7 @@ import {
 import upload from '../../config/multer.js'
 
 const router = Router()
-
+  
 router.post('/products', upload.single('img'), verify, addProduct)
 router.get('/products', verify, listProduct)
 router.put('/products/:id', upload.single('img'), verify, updateProduct)
