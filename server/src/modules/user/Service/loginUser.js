@@ -17,7 +17,11 @@ export const loginUserService = async ({ body }) => {
     throw new BadRequestError('Parol noto`g`ri')
   }
 
-  const token = jwt.sign({ id: user._id, role: 'user' }, process.env.SECRET_KEY)
+  const token = jwt.sign(
+    { id: user._id, role: 'user' },
+    process.env.SECRET_KEY,
+    { expiresIn: '1d' }
+  )
 
   return token
 }
