@@ -26,4 +26,5 @@ export const validateProduct = Joi.object({
   manufacturer: Joi.string().required(),
   brand: Joi.string().required(),
   quantity: Joi.number().required(),
+  price: Joi.number().required(),
 })
